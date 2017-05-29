@@ -5,7 +5,7 @@ Build a docker containing QBasic4.5
 
 OR just pull it from docker hub
 
-docker pull jacknorthrup/qbasic-dockerized
+docker pull jacknorthrup/qbasic-docker
  
  
  to start the docker image:
