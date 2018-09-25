@@ -7,7 +7,7 @@ ENV QB64_BUILD=$QB64_BUILD
 ENV DEBIAN_FRONTEND noninteractive
 ENV USER root
 
-COPY http://www.qb64.net/release/official/$QB64_BUILD-$QB64_VERSION/windows/qb64-$QB64_VERSION-win.zip /
+ADD http://www.qb64.net/release/official/$QB64_BUILD-$QB64_VERSION/windows/qb64-$QB64_VERSION-win.zip /
 
 RUN apt-get update && apt-get install -y \
     wget unzip dosbox && \ 
