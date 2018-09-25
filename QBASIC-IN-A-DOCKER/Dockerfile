@@ -12,3 +12,5 @@ COPY http://www.qb64.net/release/official/$QB64_BUILD-$QB64_VERSION/windows/qb64
 RUN apt-get update && apt-get install -y \
     wget unzip dosbox && \ 
     apt autoremove && rm -r /var/lib/apt/lists/*
+
+CMD ["nohup", "dosbox"]
