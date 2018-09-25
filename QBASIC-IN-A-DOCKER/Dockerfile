@@ -8,6 +8,7 @@ ENV DEBIAN_FRONTEND noninteractive
 ENV USER root
 
 ADD http://www.qb64.net/release/official/$QB64_BUILD-$QB64_VERSION/windows/qb64-$QB64_VERSION-win.zip /
+COPY dosbox.conf $HOME/.dosboxrc
 
 RUN apt-get update && apt-get install -y \
     wget unzip dosbox && \ 
