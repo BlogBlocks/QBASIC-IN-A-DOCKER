@@ -1,9 +1,17 @@
-FROM ubuntu:14.04
+FROM ubuntu:16.04
 MAINTAINER Jack Northrup jack@jacknorthrup.com
+ARG QB64_VERSION=1.1-20170120.51
+ENV QB64_VERSION=$QB64_VERSION
+ARG QB64_BUILD=2017_02_09__02_14_38
+ENV QB64_BUILD=$QB64_BUILD
 ENV DEBIAN_FRONTEND noninteractive
 ENV USER root
 
+ADD http://www.qb64.net/release/official/$QB64_BUILD-$QB64_VERSION/windows/qb64-$QB64_VERSION-win.zip /
+COPY dosbox.conf $HOME/.dosboxrc
+
 RUN apt-get update && apt-get install -y \
-    wget unzip dosbox \
-RUN apt autoremove && rm -r /var/lib/apt/lists/*
-RUN wget http://www.qb64.net/release/official/2017_02_09__02_14_38-1.1-20170120.51/windows/qb64-1.1-20170120.51-win.zip -O qb45.zip && unzip qb45.zip 
+    wget unzip dosbox && \ 
+    apt autoremove && rm -r /var/lib/apt/lists/*
+
+CMD ["nohup", "dosbox"]
